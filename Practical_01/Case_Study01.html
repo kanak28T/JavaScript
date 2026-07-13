@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRN: 24070521290 | Name: Kanak Tembhurne | File: c:\Users\KANAK\OneDrive\Desktop\เอกสาร\Symbiosis\Sem 5\JavaScript\Practical 01\Casestudy_01.html</title>
+<style>
+    :root {
+        --red: #c62828;
+        --red-dark: #8c0000;
+        --blue: #113c5f;
+        --light: #f7f7f7;
+        --text: #333;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; color: var(--text); background: white; line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    .container { width: 90%; max-width: 1100px; margin: auto; }
+
+    .topbar { background: var(--red-dark); color: white; padding: 8px 0; font-size: 13px; }
+    .topbar .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+    .navbar { background: white; padding: 12px 0; border-bottom: 3px solid var(--red); }
+    .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-badge { background: var(--red); color: white; padding: 10px; border-radius: 50%; font-weight: bold; }
+    .logo-text h1 { font-size: 18px; color: var(--blue); }
+    .logo-text span { font-size: 12px; color: var(--red); }
+
+    nav ul { display: flex; gap: 20px; }
+    nav a { color: var(--blue); font-weight: bold; }
+    nav a:hover { color: var(--red); }
+
+    .btn { display: inline-block; padding: 10px 16px; background: var(--red); color: white; border-radius: 5px; }
+    .btn:hover { background: var(--red-dark); }
+
+    .hero {
+        background: linear-gradient(90deg, rgba(140, 0, 0, 0.95), rgba(17, 60, 95, 0.75)), url('campus.jpg') center/cover;
+        color: white;
+        padding: 70px 0;
+        text-align: center;
+    }
+    .hero h1 { font-size: 24px; margin-bottom: 10px; letter-spacing: 1px; }
+    .hero h2 { font-size: 32px; margin-bottom: 15px; }
+    .hero p { margin-bottom: 15px; }
+
+    .image-grid { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+    .image-grid div { flex: 1 1 300px; }
+    .image-grid img { width: 100%; border-radius: 10px; box-shadow: 0 6px 16px rgba(0,0,0,0.18); }
+
+    .stats { display: flex; flex-wrap: wrap; gap: 15px; margin-top: -25px; position: relative; }
+    .stats div { flex: 1; min-width: 160px; background: white; padding: 20px; border: 1px solid #eee; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
+    .stats h3 { color: var(--red); }
+
+    .section { padding: 60px 0; }
+    .about-grid { display: flex; gap: 30px; align-items: center; flex-wrap: wrap; }
+    .img-block {
+        flex: 1; min-width: 280px; padding: 120px 20px;
+        background: linear-gradient(90deg, rgba(140, 0, 0, 0.75), rgba(17, 60, 95, 0.55)), url('about.jpg') center/cover;
+        color: white; border-radius: 10px;
+    }
+    .text-block { flex: 1; min-width: 280px; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .card { background: var(--light); padding: 20px; border-top: 4px solid var(--red); border-radius: 8px; }
+    .card .icon { background: var(--blue); color: white; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; border-radius: 5px; }
+
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .why-item { background: var(--light); padding: 20px; border-left: 4px solid var(--red); }
+
+    .cta { background: var(--blue); color: white; padding: 35px 20px; text-align: center; margin-top: 30px; border-radius: 10px; }
+
+    footer { background: #111; color: #ddd; padding: 40px 0 20px; margin-top: 40px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+
+    .nav-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
+    .nav-toggle span { width: 24px; height: 3px; background: var(--blue); }
+
+    @media (max-width: 780px) {
+        nav ul { display: none; }
+        .nav-toggle { display: flex; }
+        .navbar .container { position: relative; }
+        nav ul {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <div class="topbar">
+        <div class="container">
+            <span>Wathoda, Nagpur - 440008</span>
+            <span>Constituent of Symbiosis International (Deemed University), Pune</span>
+        </div>
+    </div>
+
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-badge">SIT</div>
+                <div class="logo-text">
+                    <h1>SIT NAGPUR</h1>
+                    <span>SYMBIOSIS INSTITUTE OF TECHNOLOGY</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#why">Why SIT</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn btn-orange" style="display:none;" id="applyBtn">Apply Now</a>
+            <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Symbiosis Institute of Technology, Nagpur</h1>
+            <p class="eyebrow">ENGINEERING • RESEARCH • INNOVATION</p>
+            <h2>Shaping Future-Ready Engineers Through Experiential Learning</h2>
+            <p class="tagline">A constituent of Symbiosis International (Deemed University), Pune : nurturing innovation, research and holistic growth on the principle of Vasudhaiva Kutumbakam.</p>
+            <div class="btn-row">
+                <a href="#academics" class="btn btn-orange">Explore Programs</a>
+                <a href="#about" class="btn btn-outline-light">About the Institute</a>
+            </div>
+            <div class="image-grid">
+                <div><img src="campus.jpg" alt="SIT Nagpur campus"></div>
+                <div><img src="about.jpg" alt="SIT Nagpur campus building"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section page-two">
+        <div class="container">
+            <div class="about-grid">
+                <div class="text-block">
+                    <h3>About Symbiosis Institute of Technology</h3>
+                    <p>Symbiosis Institute of Technology, Nagpur is one of the leading engineering colleges in Nagpur, nurtured by the visionary leadership of Symbiosis International (Deemed University), Pune.</p>
+                    <p>The institute follows a Problem-Based Learning approach, encouraging students to solve real-world challenges through hands-on projects, hackathons and industry-aligned coursework, supported by state-of-the-art labs and a fully residential campus.</p>
+                    <p class="highlight">Admissions open for industry-ready B.Tech programs with a strong focus on engineering and research.</p>
+                </div>
+                <div class="image-block">
+                    <img src="campus.jpg" alt="SIT Nagpur campus">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>SIT Nagpur</h4>
+                    <p>Symbiosis Institute of Technology, Wathoda, Nagpur - 440008, Maharashtra, India</p>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <li>Phone: +91 90750 89800</li>
+                    <li>Email: info@sitnagpur.siu.edu.in</li>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Symbiosis Institute of Technology, Nagpur. Demo page created as a JavaScript case study project.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.alert('Welcome to SIT');
+
+        var toggle = document.getElementById('navToggle');
+        var navUl = document.querySelector('nav ul');
+
+        toggle.addEventListener('click', function () {
+            if (navUl.style.display === 'block') {
+                navUl.style.display = 'none';
+            } else {
+                navUl.style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+</html>
