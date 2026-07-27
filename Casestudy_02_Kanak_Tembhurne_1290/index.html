@@ -1,1 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRN: 24070521290 | Name: Kanak Tembhurne | Case Study 02 — Terra &amp; Leaf</title>
+<meta name="description" content="A field-guide nursery. Browse and buy healthy indoor plants, delivered pan-India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
+<!-- ===== HEADER ===== -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="#top" class="logo">Terra <span>&amp;</span> Leaf</a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
+      <a href="#shop">Shop</a>
+      <a href="#guide">Care Guide</a>
+      <a href="#about">About</a>
+      <a href="#journal">Journal</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="cartToggle" aria-label="Open cart" aria-haspopup="dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16l-1.5 11a2 2 0 0 1-2 1.8H7.5a2 2 0 0 1-2-1.8L4 7Z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="icon-btn nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Field notes for indoor growers &mdash; No. 001</p>
+        <h1>Bring the<br>outside <em>in.</em></h1>
+        <p class="hero-sub">A small, honest catalog of houseplants &mdash; hand-picked, quarantine-checked, and shipped with a printed care card. Currently stocking 42 species.</p>
+        <div class="hero-cta">
+          <a href="#shop" class="btn btn-primary">Browse specimens</a>
+          <a href="#guide" class="btn btn-ghost">Read the care guide</a>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <img src="images/monstera.jpg" alt="A Monstera deliciosa plant in a terracotta pot against a plain wall">
+        <figcaption>Monstera deliciosa <span>— specimen No. 014</span></figcaption>
+      </figure>
+    </div>
+    <svg class="vein-divider" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 20 C 200 5, 300 35, 500 20 S 800 5, 1000 20 S 1150 30, 1200 18" stroke="currentColor" fill="none" stroke-width="1"/>
+    </svg>
+  </section>
+
+  <!-- ===== TRUST STRIP ===== -->
+  <section class="trust-strip">
+    <div class="wrap trust-grid">
+      <div class="trust-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h13l4 4v6h-2M3 7v10h2M3 7l2-3h9l2 3"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="17.5" cy="17.5" r="1.5"/></svg>
+        <p>Free delivery over ₹999</p>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v6M12 22v-6M4.9 4.9l4.2 4.2M14.9 14.9l4.2 4.2M2 12h6M16 12h6M4.9 19.1l4.2-4.2M14.9 9.1l4.2-4.2"/></svg>
+        <p>7-day health guarantee</p>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
+        <p>Printed care guide with every order</p>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.35-9.5-8.5C.7 8.6 2.8 5 6.5 5c2 0 3.3 1 4 2.2C11.2 6 12.5 5 14.5 5 18.2 5 20.3 8.6 18.5 12.5 16 16.65 12 21 12 21Z"/></svg>
+        <p>Packed by growers, not warehouses</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SHOP ===== -->
+  <section class="shop" id="shop">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The catalog</p>
+        <h2>In stock this week</h2>
+      </div>
+
+      <div class="filter-row" id="filterRow" role="tablist" aria-label="Filter plants">
+        <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="filter-btn" data-filter="low-light" role="tab" aria-selected="false">Low light</button>
+        <button class="filter-btn" data-filter="air-purifying" role="tab" aria-selected="false">Air purifying</button>
+        <button class="filter-btn" data-filter="pet-safe" role="tab" aria-selected="false">Pet safe</button>
+        <button class="filter-btn" data-filter="succulent" role="tab" aria-selected="false">Succulents</button>
+      </div>
+
+      <div class="plant-grid" id="plantGrid"><!-- cards injected by script.js --></div>
+    </div>
+  </section>
+
+  <!-- ===== CARE GUIDE CALLOUT ===== -->
+  <section class="care-callout" id="guide">
+    <svg class="vein-divider vein-divider--flip" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 20 C 200 5, 300 35, 500 20 S 800 5, 1000 20 S 1150 30, 1200 18" stroke="currentColor" fill="none" stroke-width="1"/>
+    </svg>
+    <div class="wrap care-inner">
+      <div class="care-tag">Field note</div>
+      <h2>Reading the tags</h2>
+      <p>Every specimen card carries three marks: a sun for light needs, a drop for watering frequency, and a leaf for growth pace. No jargon, no guesswork &mdash; just what the plant asked for.</p>
+      <div class="care-legend">
+        <div class="legend-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+          <div><strong>Light</strong><span>filled = bright, half = indirect, empty = low</span></div>
+        </div>
+        <div class="legend-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2s6 7 6 11.5a6 6 0 0 1-12 0C6 9 12 2 12 2Z"/></svg>
+          <div><strong>Water</strong><span>1&ndash;3 drops = weekly to monthly</span></div>
+        </div>
+        <div class="legend-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c0-6 4-8 4-14a4 4 0 0 0-8 0c0 6 4 8 4 14Z"/></svg>
+          <div><strong>Growth</strong><span>how fast it fills a shelf</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== JOURNAL / TESTIMONIAL ===== -->
+  <section class="journal" id="journal">
+    <div class="wrap journal-inner">
+      <article class="journal-note">
+        <span class="journal-no">No. 07</span>
+        <p>&ldquo;Ordered a pothos in March, it's now trailing across my whole window. The care card actually told me when to stop worrying.&rdquo;</p>
+        <footer>&mdash; Ritika, Pune</footer>
+      </article>
+      <article class="journal-note">
+        <span class="journal-no">No. 08</span>
+        <p>&ldquo;First plant shop that told me which ones my cat could sit next to. Snake plant survived my black thumb for a year.&rdquo;</p>
+        <footer>&mdash; Devansh, Nagpur</footer>
+      </article>
+      <article class="journal-note">
+        <span class="journal-no">No. 09</span>
+        <p>&ldquo;Packaging alone deserves a shelf. Arrived upright, soil intact, not a single bent leaf.&rdquo;</p>
+        <footer>&mdash; Aisha, Bengaluru</footer>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter">
+    <div class="wrap newsletter-inner">
+      <div>
+        <p class="eyebrow">Stay rooted</p>
+        <h2>Seasonal notes, once a month.</h2>
+        <p class="hero-sub">Repotting reminders, new arrivals, nothing else.</p>
+      </div>
+      <form class="newsletter-form" id="newsletterForm">
+        <label for="newsletterEmail" class="sr-only">Email address</label>
+        <input type="email" id="newsletterEmail" placeholder="you@email.com" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <p class="form-msg" id="newsletterMsg" role="status"></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" id="about">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="logo logo--light">Terra <span>&amp;</span> Leaf</a>
+      <p>A small nursery catalog, packed and shipped from Nagpur. Est. 2026.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Shop</h3>
+      <a href="#shop">All plants</a>
+      <a href="#shop">Low light</a>
+      <a href="#shop">Pet safe</a>
+    </div>
+    <div class="footer-col">
+      <h3>Company</h3>
+      <a href="#guide">Care guide</a>
+      <a href="#journal">Journal</a>
+      <a href="#about">About</a>
+    </div>
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <a href="mailto:hello@terraandleaf.example">hello@terraandleaf.example</a>
+      <a href="tel:+910000000000">+91 00000 00000</a>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>&copy; 2026 Terra &amp; Leaf. All plants, no filler.</p>
+  </div>
+</footer>
+
+<!-- ===== CART DRAWER ===== -->
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Shopping cart" aria-hidden="true">
+  <div class="cart-drawer-head">
+    <h2>Your cart</h2>
+    <button class="icon-btn" id="cartClose" aria-label="Close cart">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l16 16M20 4L4 20"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty" id="cartEmpty">Your cart is empty. Go find a plant.</p>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">₹0</span>
+    </div>
+    <button class="btn btn-primary btn-block" id="checkoutBtn">Checkout</button>
+  </div>
+</aside>
+
+<!-- ===== INVOICE / CHECKOUT PANEL ===== -->
+<div class="invoice-backdrop" id="invoiceBackdrop"></div>
+<section class="invoice-panel" id="invoicePanel" role="dialog" aria-label="Invoice and billing" aria-hidden="true">
+  <div class="invoice-panel-head">
+    <h2>Invoice &amp; Billing</h2>
+    <button class="icon-btn" id="invoiceClose" aria-label="Close invoice">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l16 16M20 4L4 20"/></svg>
+    </button>
+  </div>
+
+  <div class="invoice-panel-body">
+    <form class="invoice-form" id="invoiceForm" onsubmit="return false;">
+      <fieldset class="invoice-fieldset">
+        <legend>Customer details</legend>
+        <table class="form-table">
+          <tr>
+            <td><label for="custName">Customer name</label></td>
+            <td><input type="text" id="custName" name="custName" required placeholder="Full name"></td>
+          </tr>
+          <tr>
+            <td><label for="mobile">Mobile no</label></td>
+            <td><input type="tel" id="mobile" name="mobile" required placeholder="10-digit number" pattern="[0-9]{10}" maxlength="10"></td>
+          </tr>
+          <tr>
+            <td><label for="invoiceNo">Invoice no</label></td>
+            <td><input type="text" id="invoiceNo" name="invoiceNo" readonly></td>
+          </tr>
+          <tr>
+            <td><label for="invoiceDate">Invoice date</label></td>
+            <td><input type="date" id="invoiceDate" name="invoiceDate" required></td>
+          </tr>
+        </table>
+      </fieldset>
+
+      <fieldset class="invoice-fieldset">
+        <legend>Products (from cart)</legend>
+        <div class="invoice-table-wrap">
+          <table class="invoice-products" id="invoiceProducts">
+            <thead>
+              <tr>
+                <th>Product name</th>
+                <th>Qty (units)</th>
+                <th>Rate (₹)</th>
+                <th>Line total (₹)</th>
+              </tr>
+            </thead>
+            <tbody id="invoiceProductBody">
+              <!-- rows filled by script.js -->
+            </tbody>
+          </table>
+        </div>
+      </fieldset>
+
+      <fieldset class="invoice-fieldset">
+        <legend>Billing options</legend>
+        <table class="form-table">
+          <tr>
+            <td><label for="discount">Discount %</label></td>
+            <td><input type="number" id="discount" name="discount" min="0" max="100" value="0"></td>
+          </tr>
+          <tr>
+            <td><label for="gst">GST %</label></td>
+            <td><input type="number" id="gst" name="gst" min="0" max="28" value="18"></td>
+          </tr>
+          <tr>
+            <td><label for="packing">Packing charges (₹)</label></td>
+            <td><input type="number" id="packing" name="packing" min="0" value="50"></td>
+          </tr>
+          <tr>
+            <td>Payment mode</td>
+            <td class="radio-group">
+              <label><input type="radio" name="paymentMode" value="Cash" checked> Cash</label>
+              <label><input type="radio" name="paymentMode" value="Card"> Card</label>
+              <label><input type="radio" name="paymentMode" value="UPI"> UPI</label>
+            </td>
+          </tr>
+          <tr>
+            <td>Membership</td>
+            <td class="radio-group">
+              <label><input type="radio" name="membership" value="no" checked> No</label>
+              <label><input type="radio" name="membership" value="yes"> Yes</label>
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+
+      <div class="invoice-actions">
+        <button type="button" class="btn btn-primary" id="calcBillBtn" onclick="calculateBill()">Calculate Bill</button>
+        <button type="button" class="btn btn-ghost" id="printBillBtn" onclick="printInvoice()">Print Invoice</button>
+        <button type="reset" class="btn btn-ghost">Reset form</button>
+      </div>
+    </form>
+
+    <section class="bill-receipt" id="billReceipt" aria-live="polite">
+      <p class="bill-receipt-placeholder">Fill the form and click <strong>Calculate Bill</strong> to see your receipt here.</p>
+    </section>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
