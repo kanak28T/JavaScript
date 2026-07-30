@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gradesheet</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<div class="container">
+
+<h1>GRADESHEET</h1>
+
+<h3>Symbiosis Institute of Technology, Nagpur</h3>
+<p><b>Programme:</b> Bachelor of Technology (Computer Science & Engineering)</p>
+<p><b>Semester:</b> IV</p>
+<p><b>PRN:</b> 24070521290</p>
+<p><b>Year:</b>2026</p>
+
+<form id="gradeForm">
+
+<label>Student Name</label>
+<input type="text" id="name" placeholder="Enter Name">
+
+<table>
+
+<tr>
+<th>Course</th>
+<th>Marks (Out of 100)</th>
+<th>Grade</th>
+</tr>
+
+<tr>
+<td>Theory Of Computation</td>
+<td><input type="number" class="marks"></td>
+<td class="grade"></td>
+</tr>
+
+<tr>
+<td>Java</td>
+<td><input type="number" class="marks"></td>
+<td class="grade"></td>
+</tr>
+
+<tr>
+<td>Database Management Systems</td>
+<td><input type="number" class="marks"></td>
+<td class="grade"></td>
+</tr>
+
+<tr>
+<td>Operating Systems</td>
+<td><input type="number" class="marks"></td>
+<td class="grade"></td>
+</tr>
+
+</table>
+
+<br>
+
+<button type="button" id="calculate">Calculate Result</button>
+<button type="reset" id="reset">Reset</button>
+
+</form>
+
+<h2 id="result"></h2>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
