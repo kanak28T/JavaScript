@@ -1,1 +1,1 @@
-# JavaScript-Programming-Lab
+# JavaScript
