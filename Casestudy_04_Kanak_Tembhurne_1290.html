@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Number</title>
+</head>
+
+<body>
+
+    <h2>Palindrome Number</h2>
+
+    <p id="result"></p>
+
+    <input type="text" id="box">
+    <button onclick="checkPalindrome()">Check</button>
+
+    <script>
+
+        function reverseNumber(num) {
+            let reverse = 0;
+
+            while (num > 0) {
+                let digit = num % 10;
+                reverse = reverse * 10 + digit;
+                num = Math.floor(num / 10);
+            }
+
+            return reverse;
+        }
+
+        function checkPalindrome() {
+
+            let num = document.getElementById("box").value;
+            let result = document.getElementById("result");
+
+            if (num === "") {
+                throw new Error("Number cannot be empty.");
+            }
+
+            num = Number(num);
+
+            if (isNaN(num)) {
+                throw new Error("Please enter a valid number.");
+            }
+
+            if (num <= 0) {
+                throw new Error("Number should be greater than 0.");
+            }
+
+            let reverse = reverseNumber(num);
+
+            if (num === reverse) {
+                result.innerHTML = num + " is a Palindrome Number";
+            } else {
+                result.innerHTML = num + " is Not a Palindrome Number";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
