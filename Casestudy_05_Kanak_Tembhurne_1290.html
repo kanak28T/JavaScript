@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Max and Min Finder</title>
+</head>
+<body>
+
+    <h2>Array Max and Min Finder</h2>
+
+    <p>Enter comma-separated numbers (e.g., 25, 4, 98, 12, 67):</p>
+    <input type="text" id="numInput" placeholder="Enter numbers here">
+    <button onclick="processArray()">Find Max & Min</button>
+
+    <div id="result"></div>
+
+    <script>
+        function processArray() {
+            let rawInput = document.getElementById("numInput").value.trim();
+            let resultDiv = document.getElementById("result");
+
+            try {
+                if (rawInput === "") {
+                    throw new Error("Input field cannot be empty.");
+                }
+
+                // Convert comma-separated string to an array of numbers
+                let stringArray = rawInput.split(",");
+                let numArray = stringArray.map(item => Number(item.trim()));
+
+                // Check for invalid numbers in array
+                let hasNaN = numArray.some(num => isNaN(num));
+                if (hasNaN) {
+                    throw new Error("Please enter valid numeric values separated by commas.");
+                }
+
+                // Finding Max and Min values using Math methods & spread operator
+                let maxVal = Math.max(...numArray);
+                let minVal = Math.min(...numArray);
+
+                // Storing operations summary inside an Object
+                let report = {
+                    originalArray: numArray,
+                    totalElements: numArray.length,
+                    maximum: maxVal,
+                    minimum: minVal
+                };
+
+                // Displaying output
+                resultDiv.innerHTML = `
+                    <h3>Results:</h3>
+                    <p><b>Array Elements:</b> [ ${report.originalArray.join(", ")} ]</p>
+                    <p><b>Total Numbers:</b> ${report.totalElements}</p>
+                    <p><b>Maximum Value:</b> <span style="color: green; font-weight: bold;">${report.maximum}</span></p>
+                    <p><b>Minimum Value:</b> <span style="color: red; font-weight: bold;">${report.minimum}</span></p>
+                `;
+
+            } catch (error) {
+                alert("Error: " + error.message);
+                resultDiv.innerHTML = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
