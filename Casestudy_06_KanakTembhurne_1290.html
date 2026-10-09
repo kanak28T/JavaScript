@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portfolio Setup</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f7f1e8;
+            color: #3d342c;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* HEADER */
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        header h1 {
+            font-size: 38px;
+            color: #3d342c;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #81766b;
+            font-size: 16px;
+        }
+
+        /* MAIN GRID */
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        /* CARDS */
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e8ded1;
+            border-radius: 20px;
+            padding: 26px;
+            box-shadow: 0 8px 25px rgba(91, 72, 51, 0.08);
+        }
+
+        .card h2 {
+            margin-bottom: 20px;
+            font-size: 21px;
+            color: #4a3d32;
+        }
+
+        /* INPUTS */
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: #6e6257;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid #ded2c4;
+            background: #fcfaf7;
+            color: #3d342c;
+            outline: none;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #aaa096;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #b98562;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(185, 133, 98, 0.12);
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        /* BUTTON */
+
+        .btn {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            background: #9b6b4d;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #82583f;
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(130, 88, 63, 0.18);
+        }
+
+        /* PORTFOLIO */
+
+        .portfolio {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            margin: 5px auto 15px;
+            border-radius: 50%;
+            background: #efe1d2;
+            color: #82583f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            font-weight: bold;
+            border: 5px solid #f8f1e9;
+        }
+
+        .portfolio h3 {
+            font-size: 27px;
+            color: #3d342c;
+            margin-bottom: 5px;
+        }
+
+        .portfolio .email {
+            color: #9b6b4d;
+            margin-bottom: 18px;
+        }
+
+        .bio {
+            color: #756a60;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* SKILLS */
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .skill {
+            background: #f5ebe0;
+            color: #82583f;
+            border: 1px solid #e5d2c0;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* LINKS */
+
+        .links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #6d503c;
+            background: #f4eee7;
+            border: 1px solid #e2d7cb;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .links a:hover {
+            background: #eadbcb;
+        }
+
+        /* ANALYTICS */
+
+        .analytics {
+            grid-column: 1 / -1;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .stat {
+            background: #fcfaf7;
+            border: 1px solid #e6dbcf;
+            border-radius: 14px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .stat .number {
+            display: block;
+            font-size: 28px;
+            font-weight: bold;
+            color: #9b6b4d;
+            margin-bottom: 5px;
+        }
+
+        .stat small {
+            color: #81766b;
+        }
+
+        /* VALIDATION */
+
+        .validation {
+            margin-top: 25px;
+        }
+
+        .validation-item {
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            background: #fcfaf7;
+            border: 1px solid #e7ddd2;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .valid {
+            color: #5d8766;
+        }
+
+        .invalid {
+            color: #b65f52;
+        }
+
+        /* KEYWORDS */
+
+        .keywords {
+            margin-top: 22px;
+        }
+
+        .keyword-list {
+            margin-top: 10px;
+            color: #756a60;
+            background: #f8f2eb;
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            text-align: center;
+            color: #9a9086;
+            margin-top: 30px;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 18px;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .analytics {
+                grid-column: auto;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>🎓 Student Portfolio Setup</h1>
+        <p>JavaScript String Functions & Regular Expression Validator</p>
+    </header>
+
+
+    <div class="main-grid">
+
+        <!-- STUDENT INFORMATION -->
+
+        <div class="card">
+
+            <h2>📝 Student Information</h2>
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="name"
+                       placeholder="Enter your full name">
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="text" id="email"
+                       placeholder="example@gmail.com">
+            </div>
+
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input type="text" id="phone"
+                       placeholder="9876543210">
+            </div>
+
+            <div class="input-group">
+                <label>Skills</label>
+                <input type="text" id="skills"
+                       placeholder="JavaScript, Python, AI, SQL">
+            </div>
+
+            <div class="input-group">
+                <label>Bio</label>
+                <textarea id="bio"
+                    placeholder="Write something about yourself..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>LinkedIn URL</label>
+                <input type="text" id="linkedin"
+                    placeholder="https://linkedin.com/in/username">
+            </div>
+
+            <div class="input-group">
+                <label>GitHub URL</label>
+                <input type="text" id="github"
+                    placeholder="https://github.com/username">
+            </div>
+
+            <button class="btn" onclick="generatePortfolio()">
+                Generate Portfolio
+            </button>
+
+        </div>
+
+
+        <!-- PORTFOLIO PREVIEW -->
+
+        <div class="card portfolio">
+
+            <h2>✨ Portfolio Preview</h2>
+
+            <div class="avatar" id="avatar">S</div>
+
+            <h3 id="previewName">
+                Student Name
+            </h3>
+
+            <p class="email" id="previewEmail">
+                student@example.com
+            </p>
+
+            <p class="bio" id="previewBio">
+                Your portfolio bio will appear here.
+            </p>
+
+            <div class="skills" id="previewSkills">
+                <span class="skill">
+                    Your Skills
+                </span>
+            </div>
+
+            <div class="links">
+
+                <a id="linkedinLink"
+                   href="#"
+                   target="_blank">
+                    LinkedIn
+                </a>
+
+                <a id="githubLink"
+                   href="#"
+                   target="_blank">
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ANALYTICS -->
+
+        <div class="card analytics">
+
+            <h2>📊 Text Analytics</h2>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <span class="number" id="charCount">0</span>
+                    <small>Characters</small>
+                </div>
+
+                <div class="stat">
+                    <span class="number" id="wordCount">0</span>
+                    <small>Words</small>
+                </div>
+
+                <div class="stat">
+                    <span class="number" id="skillCount">0</span>
+                    <small>Skills</small>
+                </div>
+
+                <div class="stat">
+                    <span class="number" id="vowelCount">0</span>
+                    <small>Vowels</small>
+                </div>
+
+            </div>
+
+
+            <!-- REGEX -->
+
+            <div class="validation">
+
+                <h2>🔍 Regex Validation</h2>
+
+                <div class="validation-item">
+                    <span>Email</span>
+                    <strong id="emailStatus">
+                        Not Checked
+                    </strong>
+                </div>
+
+                <div class="validation-item">
+                    <span>Phone</span>
+                    <strong id="phoneStatus">
+                        Not Checked
+                    </strong>
+                </div>
+
+                <div class="validation-item">
+                    <span>Name</span>
+                    <strong id="nameStatus">
+                        Not Checked
+                    </strong>
+                </div>
+
+                <div class="validation-item">
+                    <span>LinkedIn</span>
+                    <strong id="linkedinStatus">
+                        Not Checked
+                    </strong>
+                </div>
+
+                <div class="validation-item">
+                    <span>GitHub</span>
+                    <strong id="githubStatus">
+                        Not Checked
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <!-- KEYWORDS -->
+
+            <div class="keywords">
+
+                <h2>🔑 Detected Keywords</h2>
+
+                <p class="keyword-list" id="keywords">
+                    No keywords detected yet.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+        JavaScript Lab Project • String Processing •
+        Regular Expressions • Client-Side Validation
+    </div>
+
+</div>
+
+
+<script>
+
+    function generatePortfolio() {
+
+        /* GET INPUT VALUES */
+
+        let name =
+            document.getElementById("name").value.trim();
+
+        let email =
+            document.getElementById("email").value.trim();
+
+        let phone =
+            document.getElementById("phone").value.trim();
+
+        let skillsText =
+            document.getElementById("skills").value.trim();
+
+        let bio =
+            document.getElementById("bio").value.trim();
+
+        let linkedin =
+            document.getElementById("linkedin").value.trim();
+
+        let github =
+            document.getElementById("github").value.trim();
+
+
+        /* STRING FUNCTIONS */
+
+        // Convert name to uppercase
+        let upperName =
+            name.toUpperCase();
+
+        // Get first character
+        let firstLetter =
+            name.charAt(0).toUpperCase();
+
+        // Count characters
+        let bioLength =
+            bio.length;
+
+
+        // Convert skills into an array
+        let skills =
+            skillsText
+            .split(",")
+            .map(skill => skill.trim())
+            .filter(skill => skill !== "");
+
+
+        // Convert array back into string
+        let skillString =
+            skills.join(", ");
+
+
+        /* REGULAR EXPRESSIONS */
+
+        let emailRegex =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        let phoneRegex =
+            /^[6-9]\d{9}$/;
+
+        let nameRegex =
+            /^[A-Za-z ]{2,50}$/;
+
+        let linkedinRegex =
+            /^https?:\/\/(www\.)?linkedin\.com\/.+/i;
+
+        let githubRegex =
+            /^https?:\/\/(www\.)?github\.com\/.+/i;
+
+
+        /* VALIDATION */
+
+        checkStatus(
+            "emailStatus",
+            emailRegex.test(email)
+        );
+
+        checkStatus(
+            "phoneStatus",
+            phoneRegex.test(phone)
+        );
+
+        checkStatus(
+            "nameStatus",
+            nameRegex.test(name)
+        );
+
+        checkStatus(
+            "linkedinStatus",
+            linkedinRegex.test(linkedin)
+        );
+
+        checkStatus(
+            "githubStatus",
+            githubRegex.test(github)
+        );
+
+
+        /* PORTFOLIO PREVIEW */
+
+        document.getElementById("previewName")
+            .textContent =
+            upperName || "Student Name";
+
+        document.getElementById("previewEmail")
+            .textContent =
+            email || "student@example.com";
+
+        document.getElementById("previewBio")
+            .textContent =
+            bio || "Your portfolio bio will appear here.";
+
+        document.getElementById("avatar")
+            .textContent =
+            firstLetter || "S";
+
+
+        /* DISPLAY SKILLS */
+
+        let skillHTML = "";
+
+        if (skills.length > 0) {
+
+            skills.forEach(function(skill) {
+
+                skillHTML +=
+                    `<span class="skill">${skill}</span>`;
+
+            });
+
+        } else {
+
+            skillHTML =
+                `<span class="skill">Your Skills</span>`;
+        }
+
+        document.getElementById("previewSkills")
+            .innerHTML = skillHTML;
+
+
+        /* LINKS */
+
+        document.getElementById("linkedinLink")
+            .href = linkedin || "#";
+
+        document.getElementById("githubLink")
+            .href = github || "#";
+
+
+        /* TEXT ANALYTICS */
+
+        // Character count
+        document.getElementById("charCount")
+            .textContent = bioLength;
+
+
+        // Word count
+        let words =
+            bio === ""
+            ? []
+            : bio.split(/\s+/);
+
+        document.getElementById("wordCount")
+            .textContent = words.length;
+
+
+        // Skill count
+        document.getElementById("skillCount")
+            .textContent = skills.length;
+
+
+        // Count vowels using Regex
+        let vowels =
+            bio.match(/[aeiou]/gi);
+
+        document.getElementById("vowelCount")
+            .textContent =
+            vowels ? vowels.length : 0;
+
+
+        /* KEYWORD DETECTION */
+
+        let importantKeywords = [
+
+            "javascript",
+            "python",
+            "java",
+            "html",
+            "css",
+            "react",
+            "sql",
+            "ai",
+            "machine learning",
+            "data science",
+            "developer"
+
+        ];
+
+
+        let lowerBio =
+            bio.toLowerCase();
+
+        let foundKeywords = [];
+
+
+        importantKeywords.forEach(function(keyword) {
+
+            if (lowerBio.includes(keyword)) {
+
+                foundKeywords.push(keyword);
+
+            }
+
+        });
+
+
+        if (foundKeywords.length > 0) {
+
+            document.getElementById("keywords")
+                .textContent =
+                foundKeywords.join(" • ");
+
+        } else {
+
+            document.getElementById("keywords")
+                .textContent =
+                "No keywords detected yet.";
+
+        }
+
+    }
+
+
+    /* VALIDATION FUNCTION */
+
+    function checkStatus(elementId, isValid) {
+
+        let element =
+            document.getElementById(elementId);
+
+        if (isValid) {
+
+            element.textContent = "✓ Valid";
+            element.className = "valid";
+
+        } else {
+
+            element.textContent = "✗ Invalid";
+            element.className = "invalid";
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
