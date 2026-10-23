@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Class Scheduler | Experiment 11</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="scheduler.js"></script>
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand-icon">🎓</div>
+        <div>
+            <h1>Smart Class Scheduler</h1>
+            <p>VALUE ADDED PROJECT · EXPERIMENT 11</p>
+        </div>
+        <div class="live-badge"><span></span> LIVE</div>
+    </header>
+
+    <main class="dashboard">
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">STUDENT DASHBOARD</p>
+                <h2>Manage your time smarter.</h2>
+                <p>Stay prepared for every upcoming class.</p>
+            </div>
+            <div class="welcome-icon">📚</div>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <p>Current Time</p>
+                <h2 id="currentTime">--:--:--</h2>
+                <span>● Live local clock</span>
+            </article>
+            <article class="stat-card highlight">
+                <p>Time Remaining</p>
+                <h2 id="countdown">00:00:00</h2>
+                <span id="timerLabel">Until class starts</span>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <div>
+                    <p class="eyebrow">YOUR NEXT SESSION</p>
+                    <h2>Class Schedule</h2>
+                </div>
+                <span class="tag" id="status">Not scheduled</span>
+            </div>
+
+            <div class="class-info">
+                <div class="subject-icon">💻</div>
+                <div>
+                    <h3 id="className">Web Development</h3>
+                    <p>HTML · CSS · JavaScript</p>
+                </div>
+            </div>
+
+            <div class="progress-info">
+                <span>Time elapsed</span>
+                <span id="progressText">0%</span>
+            </div>
+            <div class="progress-track">
+                <div id="progressBar"></div>
+            </div>
+
+            <label for="classTime">Choose class date and time</label>
+            <input type="datetime-local" id="classTime">
+
+            <div class="actions">
+                <button id="startBtn" class="primary">▶ Start Countdown</button>
+                <button id="resetBtn" class="secondary">↻ Reset</button>
+            </div>
+
+            <p id="message" role="status" aria-live="polite">
+                Select a future time to schedule your class.
+            </p>
+        </section>
+
+        <section class="info-grid">
+            <article class="info-card">
+                <span>⏱️</span>
+                <h3>setInterval()</h3>
+                <p>Updates the clock and countdown every second.</p>
+            </article>
+            <article class="info-card">
+                <span>🔔</span>
+                <h3>setTimeout()</h3>
+                <p>Schedules a notification when the class begins.</p>
+            </article>
+            <article class="info-card">
+                <span>📦</span>
+                <h3>ES6 Modules</h3>
+                <p>Imports and exports reusable timer functions.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        Designed for Web Development Practical · Experiment No. 11
+    </footer>
+</body>
+</html>
