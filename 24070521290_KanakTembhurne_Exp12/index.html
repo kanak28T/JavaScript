@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f8f6ed">
+    <title>Little Steps | Study Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="topbar">
+        <a href="#" class="brand">
+            <span class="brand-mark">✳</span>
+            <span>
+                <strong>little steps</strong>
+                <small>YOUR PERSONAL STUDY SPACE</small>
+            </span>
+        </a>
+
+        <div class="topbar-right">
+            <div class="live-indicator">
+                <span class="live-dot"></span>
+                YOUR DAY, YOUR PACE
+            </div>
+            <div class="clock-box">
+                <span id="clock">00:00:00</span>
+                <small id="todayDate">Loading date...</small>
+            </div>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow">A FRESH PAGE, A FRESH START</span>
+                <h1>Make room for<br><em>what matters.</em></h1>
+                <p>A calmer way to plan your studies, stay focused and celebrate every little win.</p>
+                <a class="hero-link" href="#planner">Explore your planner <span>↘</span></a>
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+                <div class="sun-circle"></div>
+                <div class="art-leaf leaf-one">✳</div>
+                <div class="art-leaf leaf-two">❋</div>
+                <div class="art-note">
+                    <span>today's reminder</span>
+                    <strong>Small steps<br>still move you<br>forward.</strong>
+                    <div class="note-line"></div>
+                    <small>take it gently ♡</small>
+                </div>
+                <div class="art-flower">✿</div>
+            </div>
+        </section>
+
+        <section class="welcome-row">
+            <div>
+                <span class="eyebrow">YOUR STUDY DASHBOARD</span>
+                <h2 id="greeting">Hello, achiever.</h2>
+                <p>Little by little, a little becomes a lot.</p>
+            </div>
+            <div class="date-pill">
+                <span>🌿</span>
+                <span id="dateLabel">Your daily progress</span>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span>Total tasks</span>
+                    <span class="stat-icon icon-cream">✎</span>
+                </div>
+                <strong id="totalTasks">0</strong>
+                <small>Things on your list</small>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span>Completed</span>
+                    <span class="stat-icon icon-green">✓</span>
+                </div>
+                <strong id="completedTasks">0</strong>
+                <small>Little wins collected</small>
+            </article>
+
+            <article class="stat-card progress-stat">
+                <div class="stat-top">
+                    <span>Daily progress</span>
+                    <span class="stat-icon icon-yellow">↗</span>
+                </div>
+                <strong id="percentage">0%</strong>
+                <div class="mini-progress">
+                    <div id="miniBar"></div>
+                </div>
+                <small>Keep growing at your pace</small>
+            </article>
+        </section>
+
+        <section class="workspace" id="planner">
+            <div class="main-column">
+                <section class="panel task-panel">
+                    <div class="section-heading">
+                        <div>
+                            <span class="eyebrow">ONE THING AT A TIME</span>
+                            <h2>Today's focus</h2>
+                        </div>
+                        <span class="count-pill" id="taskCount">0 tasks</span>
+                    </div>
+
+                    <div class="progress-heading">
+                        <span>Your daily journey</span>
+                        <span id="progressLabel">0 of 0 completed</span>
+                    </div>
+
+                    <div class="progress-track">
+                        <div id="progressBar"></div>
+                    </div>
+
+                    <div class="filter-row">
+                        <button class="filter-btn active" data-filter="all">All tasks</button>
+                        <button class="filter-btn" data-filter="pending">To do</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                    </div>
+
+                    <div id="taskList" class="task-list"></div>
+
+                    <div class="task-footer">
+                        <span id="remainingLabel">You have 0 tasks left.</span>
+                        <button id="clearCompleted" class="text-btn">Clear completed</button>
+                    </div>
+                </section>
+
+                <section class="panel tips-panel">
+                    <div class="section-heading">
+                        <div>
+                            <span class="eyebrow">A LITTLE INSPIRATION</span>
+                            <h2>Your study corner</h2>
+                        </div>
+                        <span class="decorative-flower">✿</span>
+                    </div>
+
+                    <div class="tip-content" id="tips">
+                        <div class="tip-number">01</div>
+                        <div>
+                            <h3>Progress over perfection.</h3>
+                            <p>Focus on one small task at a time. Consistency will take you further than a perfect plan.</p>
+                        </div>
+                    </div>
+
+                    <button id="loadTips" class="outline-btn">
+                        Find more inspiration <span>↗</span>
+                    </button>
+                    <p id="apiStatus" class="api-status" aria-live="polite">Your inspiration is ready whenever you are.</p>
+                </section>
+            </div>
+
+            <aside class="side-column">
+                <section class="panel add-panel">
+                    <div class="section-heading">
+                        <div>
+                            <span class="eyebrow">PLAN YOUR NEXT WIN</span>
+                            <h2>Add a task</h2>
+                        </div>
+                        <span class="add-symbol">＋</span>
+                    </div>
+
+                    <form id="taskForm">
+                        <label for="taskName">What would you like to do?</label>
+                        <input id="taskName" type="text" maxlength="100" placeholder="e.g. Revise JavaScript" required>
+
+                        <label for="subject">Study subject</label>
+                        <select id="subject">
+                            <option>Web Development</option>
+                            <option>JavaScript</option>
+                            <option>jQuery and AJAX</option>
+                            <option>Database Management</option>
+                            <option>Programming</option>
+                            <option>Other</option>
+                        </select>
+
+                        <div class="form-grid">
+                            <div>
+                                <label for="priority">Priority</label>
+                                <select id="priority">
+                                    <option value="Normal">Normal</option>
+                                    <option value="High">High</option>
+                                    <option value="Low">Low</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="dueDate">Due date</label>
+                                <input id="dueDate" type="date">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="primary-btn">
+                            <span>＋</span> Add to my list
+                        </button>
+
+                        <p id="formMessage" class="form-message" aria-live="polite"></p>
+                    </form>
+                </section>
+
+                <section class="quote-card">
+                    <span class="quote-mark">“</span>
+                    <blockquote>You do not have to see the whole staircase. Just take the first step.</blockquote>
+                    <div class="quote-author"><span></span> A GENTLE REMINDER</div>
+                    <div class="quote-flower">✿</div>
+                </section>
+
+                <section class="storage-note">
+                    <span class="storage-icon">♡</span>
+                    <div>
+                        <strong>Your progress stays with you.</strong>
+                        <p>Your tasks are saved in this browser automatically.</p>
+                    </div>
+                    <span class="saved-badge" id="saveStatus">Saved</span>
+                </section>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>✳ little steps</span>
+        <span>Made for mindful learning</span>
+        <span>Grow at your own pace ♡</span>
+    </footer>
+</body>
+</html>
