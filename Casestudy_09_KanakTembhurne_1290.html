@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 9 - Theme Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Light Theme Styles */
+        body.light {
+            background-color: #f4f4f9;
+            color: #333333;
+        }
+
+        body.light .card {
+            background-color: #e6e6e6;
+            border: 1px solid #b0b0b0;
+        }
+
+        /* Dark Theme Styles */
+        body.dark {
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+
+        body.dark .card {
+            background-color: #4a3b32;
+            border: 1px solid #6b5245;
+        }
+
+        .card {
+            padding: 30px 40px;
+            border-radius: 4px;
+            text-align: center;
+            width: 320px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        select {
+            padding: 4px 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            gap: 8px;
+        }
+
+        button {
+            padding: 6px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .clear-btn {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .status-msg {
+            font-size: 13px;
+            min-height: 18px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="light">
+
+    <div class="card">
+        <h2>Theme Settings</h2>
+        
+        <label for="themeSelect">Select your preferred theme:</label>
+        <select id="themeSelect" onchange="previewTheme()">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+
+        <div class="button-group">
+            <button onclick="saveLocalStorage()">Save using localStorage</button>
+            <button onclick="saveSessionStorage()">Save using sessionStorage</button>
+        </div>
+
+        <button class="clear-btn" onclick="clearPreferences()">Clear Preferences</button>
+
+        <p id="statusMsg" class="status-msg"></p>
+    </div>
+
+    <script>
+        const themeSelect = document.getElementById('themeSelect');
+        const statusMsg = document.getElementById('statusMsg');
+
+        // Apply temporary theme dynamically upon changing select dropdown
+        function previewTheme() {
+            document.body.className = themeSelect.value;
+        }
+
+        // Save theme in localStorage (persists when tab/browser closes)
+        function saveLocalStorage() {
+            const selectedTheme = themeSelect.value;
+            // Clear sessionStorage to avoid conflicts
+            sessionStorage.removeItem('theme');
+            
+            localStorage.setItem('theme', selectedTheme);
+            statusMsg.textContent = 'Theme saved using localStorage.';
+        }
+
+        // Save theme in sessionStorage (resets to default light when reloaded or reopened)
+        function saveSessionStorage() {
+            const selectedTheme = themeSelect.value;
+            // Clear localStorage to avoid persistence override
+            localStorage.removeItem('theme');
+            
+            sessionStorage.setItem('theme', selectedTheme);
+            statusMsg.textContent = 'Theme saved using sessionStorage.';
+        }
+
+        // Clear all saved theme preferences and reset to Light
+        function clearPreferences() {
+            localStorage.removeItem('theme');
+            sessionStorage.removeItem('theme');
+            
+            document.body.className = 'light';
+            themeSelect.value = 'light';
+            statusMsg.textContent = 'Preferences cleared.';
+        }
+
+        // Load saved theme on initial page load
+        function loadTheme() {
+            const localTheme = localStorage.getItem('theme');
+            const sessionTheme = sessionStorage.getItem('theme');
+
+            if (localTheme) {
+                // Persistent state restored
+                document.body.className = localTheme;
+                themeSelect.value = localTheme;
+                statusMsg.textContent = 'Theme loaded from localStorage.';
+            } else if (sessionTheme) {
+                // Session state applied
+                document.body.className = sessionTheme;
+                themeSelect.value = sessionTheme;
+                statusMsg.textContent = 'Theme saved using sessionStorage.';
+            } else {
+                // Default theme when session ends, reloaded, or cleared
+                document.body.className = 'light';
+                themeSelect.value = 'light';
+                statusMsg.textContent = '';
+            }
+        }
+
+        // Run theme loader on startup
+        loadTheme();
+    </script>
+</body>
+</html>
