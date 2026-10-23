@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiment 10 - JSON Data</title>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    padding: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+h2 { text-align: center; color: #2563eb; }
+button {
+    padding: 10px;
+    margin: 5px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #aaa;
+    padding: 10px;
+    text-align: left;
+}
+th { background: #2563eb; color: white; }
+#status { margin-top: 15px; }
+</style>
+</head>
+
+<body>
+<div class="container">
+    <h2>Load JSON Data</h2>
+
+    <button onclick="useFetch()">Load using fetch()</button>
+    <button onclick="useJQuery()">Load using $.getJSON()</button>
+
+    <p id="status">Click any button to display data.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody id="result"></tbody>
+    </table>
+</div>
+
+<script>
+const users = [
+    {
+        id: 1,
+        name: "Rahul Sharma",
+        email: "rahul@gmail.com",
+        city: "Pune"
+    },
+    {
+        id: 2,
+        name: "Priya Patil",
+        email: "priya@gmail.com",
+        city: "Mumbai"
+    },
+    {
+        id: 3,
+        name: "Amit Verma",
+        email: "amit@gmail.com",
+        city: "Delhi"
+    }
+];
+
+// Convert sample data to JSON
+const jsonData = JSON.stringify(users);
+
+function displayData(data) {
+    const tbody = document.getElementById("result");
+    tbody.replaceChildren();
+
+    data.forEach(user => {
+        const row = document.createElement("tr");
+
+        [user.id, user.name, user.email, user.city]
+            .forEach(value => {
+                const cell = document.createElement("td");
+                cell.textContent = value;
+                row.appendChild(cell);
+            });
+
+        tbody.appendChild(row);
+    });
+}
+
+// Method 1: Fetch API
+function useFetch() {
+    const status = document.getElementById("status");
+
+    fetch("data:application/json," + encodeURIComponent(jsonData))
+        .then(response => response.json())
+        .then(data => {
+            displayData(data);
+            status.textContent = "Data loaded using fetch()!";
+        })
+        .catch(error => {
+            status.textContent = "Error: " + error.message;
+        });
+}
+
+// Method 2: jQuery $.getJSON()
+function useJQuery() {
+    const status = document.getElementById("status");
+
+    if (!window.jQuery) {
+        status.textContent =
+            "jQuery did not load. Connect to the internet and refresh.";
+        return;
+    }
+
+    const dataURL =
+        "data:application/json," + encodeURIComponent(jsonData);
+
+    $.getJSON(dataURL)
+        .done(function(data) {
+            displayData(data);
+            status.textContent = "Data loaded using jQuery $.getJSON()!";
+        })
+        .fail(function() {
+            status.textContent =
+                "This browser blocked the data URL. Use the local-server method below.";
+        });
+}
+</script>
+</body>
+</html>
